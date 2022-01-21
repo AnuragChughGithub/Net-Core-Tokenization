@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Net_Core_Tokenization.Models
+﻿namespace Net_Core_Tokenization.Models
 {
     public partial class Products
     {

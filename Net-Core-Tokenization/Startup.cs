@@ -5,6 +5,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Net_Core_Tokenization.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
 
 namespace Net_Core_Tokenization
 {
@@ -23,6 +25,7 @@ namespace Net_Core_Tokenization
             var connection = Configuration.GetConnectionString("InventoryDatabase");
             services.AddDbContextPool<InventoryContext>(options => options.UseSqlServer(connection));
             services.AddControllers();
+            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Net_Core_Tokenization.Models;
 
 namespace Net_Core_Tokenization.Controllers
 {
+    [ApiController]
+    [Route("api/[controller]")]
     public class ProductsController : Controller
     {
         private readonly InventoryContext _context;
@@ -19,12 +18,14 @@ namespace Net_Core_Tokenization.Controllers
         }
 
         // GET: Products
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Products.ToListAsync());
         }
 
         // GET: Products/Details/5
+        [HttpGet("{id}")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -43,6 +44,7 @@ namespace Net_Core_Tokenization.Controllers
         }
 
         // GET: Products/Create
+        [HttpGet("create")]
         public IActionResult Create()
         {
             return View();
@@ -64,7 +66,8 @@ namespace Net_Core_Tokenization.Controllers
             return View(products);
         }
 
-        // GET: Products/Edit/5
+        // GET: Products/edit/5
+        [HttpGet("edit/{id}")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -115,7 +118,8 @@ namespace Net_Core_Tokenization.Controllers
             return View(products);
         }
 
-        // GET: Products/Delete/5
+        // GET: Products/delete/5
+        [HttpGet("delete/{id}")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
