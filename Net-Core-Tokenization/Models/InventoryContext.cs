@@ -9,12 +9,12 @@ namespace Net_Core_Tokenization.Models
         {
         }
 
-        public virtual DbSet<Products> Products { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<UserInfo> UserInfo { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Products>(entity =>
+            modelBuilder.Entity<Product>(entity =>
             {
                 entity.HasKey(e => e.ProductId)
                     .HasName("PK__Products__B40CC6CD10D4092C");

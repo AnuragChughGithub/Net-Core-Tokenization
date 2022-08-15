@@ -2,7 +2,7 @@
 
 namespace Net_Core_Tokenization.Models
 {
-    public partial class UserInfo
+    public class UserInfo
     {
         public int UserId { get; set; }
         public string FirstName { get; set; }
