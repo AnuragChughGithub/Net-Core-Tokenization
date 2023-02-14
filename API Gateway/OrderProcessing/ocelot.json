@@ -10,6 +10,10 @@
           "Port": "5000"
         }
       ],
+      "FileCacheOptions": {
+        "TtlSeconds": 30,
+        "Region": "customercaching"
+      },
       "UpstreamPathTemplate": "/Customer",
       "UpstreamHttpMethod": [
         "GET"
@@ -41,6 +45,7 @@
     }
   ],
   "GlobalConfiguration": {
+    "RequestIdKey": "X-Correlation-Id",
     "BaseUrl": "http://localhost:39469"
   }
 }

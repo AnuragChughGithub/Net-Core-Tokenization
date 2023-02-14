@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using Ocelot.Cache.CacheManager;
 
 namespace OrderProcessing
 {
@@ -26,7 +27,11 @@ namespace OrderProcessing
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddOcelot(Configuration);
+            services.AddOcelot(Configuration)
+                .AddCacheManager(x =>
+                {
+                    x.WithDictionaryHandle();
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
